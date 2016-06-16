@@ -2,7 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return [["Cruiser","33","34","35"],["Destroyer","66","56"],["Battleship","92","93","94","95"],["Carrier","28","38","48","58","68"],["Battleship", "11","12","13","14"]];
+    return this.store.findRecord('game', 1);
+    // return [["Cruiser","33","34","35"],["Destroyer","66","56"],["Battleship","92","93","94","95"],["Carrier","28","38","48","58","68"],["Battleship", "11","12","13","14"]];
   },
   actions: {
     makeHit(params) {

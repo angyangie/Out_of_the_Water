@@ -7,8 +7,8 @@ export default Model.extend({
   first_name: attr('string'),
   last_name: attr('string'),
   email: attr('string'),
-  player_rank: attr('integer'),
-  scores: hasMany('score'),
-  games: hasMany('game'),
-  ships: hasMany('ship')
+  player_rank: attr('number'),
+  scores: hasMany('score', { async: true }),
+  games: hasMany('game', { async: true }),
+  ships: hasMany('ship', { async: true })
 });

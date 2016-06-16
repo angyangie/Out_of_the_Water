@@ -10,8 +10,8 @@
     <img src="assets/images/miss.jpg">
     {{/if}}
 
-    {{#if (is-ship coord ships=model)}}
-    {{{is-ship coord ships=model}}}
+    {{#if (is-ship coord ships=model.ships)}}
+    {{{is-ship coord ships=model.ships}}}
     {{/if}}
   </td>
   {{/each}}
