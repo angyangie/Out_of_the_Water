@@ -12,13 +12,11 @@ export default Ember.Route.extend({
       for (let i = 0;i < model.length;i++) {
         for (let j = 0;j < model[i].length;j++) {
           if (model[i][j] === params) {
-            hits[params[0]][params[1]] = true;
             hit = true;
             hits[params[0]][params[1]] = true;
           }
         }
       }
-      hits[params[0]][params[1]] = true;
       console.log(hit);
       // console.log(hits[params[0]][params[1]])
     }
