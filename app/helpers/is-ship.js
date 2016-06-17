@@ -1,19 +1,27 @@
 import Ember from 'ember';
 
 export function isShip(coords, hash) {
-  let ships = hash.ships;
-  debugger
+  let ships = hash.ships.mapBy('coordinates');
+  let ship;
   for (let i = 0;i < ships.length;i++) {
-    if (ships[i].includes(coords[0])) {
+    ship = ships[i].split(",")
+    if (ship.includes(coords[0])) {
       let vertical = "";
       let shipPiece = "";
 
-      if (ships[i][1][1] === ships[i][2][1]) vertical = "transform:rotate(90deg);";
+      if (ship[0][1] === ship[1][1]) vertical = "transform:rotate(90deg);";
 
-      if ((ships[i][1][0] > ships[i][2][0]) && (vertical !== "")) {
-        shipPiece = `${ships[i][0].toLowerCase()}-${ships[i].length - ships[i].indexOf(coords[0])}`;
+
+      let ship_type = hash.ships.mapBy('ship_type')[i]
+
+      // debugger;
+        console.log(`Coords are ${coords[0]} and ${ship_type.toLowerCase()}-${ship.indexOf(coords[0])+1}`);
+
+      if ((ship[0][0] > ship[1][0]) && (vertical !== "")) {
+        // shipPiece = `${ship_type.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
+        shipPiece = `${ship_type.toLowerCase()}-${ship.length - ship.indexOf(coords[0])}`;
       } else {
-        shipPiece = `${ships[i][0].toLowerCase()}-${ships[i].indexOf(coords[0])}`;
+        shipPiece = `${ship_type.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
       }
 
       // console.log(`Coords: ${coords} and Ships: ${ships}`);
