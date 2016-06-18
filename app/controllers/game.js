@@ -15,5 +15,19 @@ export default Ember.Controller.extend({
     }
     return cArray;
   })
+<<<<<<< HEAD
+=======
+  // hits: 
+  //   [[false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false],
+  //   [false, false, false, false, false, false, false, false, false, false]]
+>>>>>>> master
 });
 

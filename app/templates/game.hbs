@@ -1,20 +1,45 @@
-{{outlet}}
-{{!-- <table border="3px" border-color="white"> --}}
-<table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
-{{#each coordsArray as |innerArray|}}
-<tr>
-  {{#each innerArray as |coord|}}
-  <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
-  
-    {{#if (isHit coord hits=hits)}}
-    <img src="assets/images/miss.jpg">
-    {{/if}}
+<div class='row'>
 
-    {{#if (is-ship coord ships=model.ships)}}
-      {{{is-ship coord ships=model.ships}}}
-    {{/if}}
-  </td>
-  {{/each}}
-</tr>
-{{/each}}
-</table>
+  {{outlet}}
+
+  <div class="col-md-4 table-padded">
+
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
+      {{#each coordsArray as |innerArray|}}
+      <tr>
+        {{#each innerArray as |coord|}}
+        <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
+
+          {{!-- {{#if (isHit coord hits=hits)}}
+          <img src="assets/images/miss.jpg">
+          {{/if}} --}}
+
+          {{{is-ship coord model=model player="1"}}}
+        </td>
+        {{/each}}
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+  
+  <div class="col-md-4 table-padded">
+
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
+      {{#each coordsArray as |innerArray|}}
+      <tr>
+        {{#each innerArray as |coord|}}
+        <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
+
+          {{!-- {{#if (isHit coord hits=hits)}}
+          <img src="assets/images/miss.jpg">
+          {{/if}} --}}
+
+          {{{is-ship coord model=model player="2"}}}
+        </td>
+        {{/each}}
+      </tr>
+      {{/each}}
+    </table>
+  </div>
+
+</div>
