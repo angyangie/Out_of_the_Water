@@ -22,13 +22,13 @@ export default Ember.Route.extend({
       // console.log(hit);
       // console.log(hits[params[0]][params[1]])
     }
-    sendRequest() {
-      return this.get('ajax').request('/games/hits_array'), {
-        method: 'GET',
-        data: {
+    // sendRequest() {
+    //   return this.get('ajax').request('/games/hits_array'), {
+    //     method: 'GET',
+    //     data: {
           
-        }
-      });
-    }
+    //     }
+    //   };
+    // }
   }
 });
