@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  ajax: Ember.inject.service(),
   model() {
     return this.store.findRecord('game', 1);
   },
@@ -20,6 +21,14 @@ export default Ember.Route.extend({
       console.log(params);
       // console.log(hit);
       // console.log(hits[params[0]][params[1]])
+    }
+    sendRequest() {
+      return this.get('ajax').request('/games/hits_array'), {
+        method: 'GET',
+        data: {
+          
+        }
+      });
     }
   }
 });

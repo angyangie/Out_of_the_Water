@@ -7,3 +7,5 @@ export function isHit(coords, hash) {
 }
 
 export default Ember.Helper.helper(isHit);
+
+// expect from AJAX: user_game, coordinates
