@@ -5,7 +5,7 @@ export function isShip(coords, hash) {
   const ships = hash.model.get('ships').filter(function(item){
     if(item.get('user.id') === player) return true 
   })
-
+  debugger
   let ship;
   for (let i = 0;i < ships.length;i++) {
     ship = ships[i].get('coordinates').split(",")
