@@ -1,18 +1,29 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  // ajax: Ember.inject.service(),
   model() {
     return this.store.findRecord('game', 1);
   },
+  isHit(coords) {
+    const user_game = this.store.peekRecord('user_game', 1)
+
+    const hits_array = user_game.get('hits');
+    coords = [parseInt(coords[0][0]), parseInt(coords[0][1])];
+    
+    if (hits[coords[0]][coords[1]]){
+      return "<img src='assets/images/miss.jpg'>"
+    }
+
+  },
+
   actions: {
     makeHit(params) {
-      debugger;
 
       let data = {
         url: 'http://localhost:3000/api/v1/games/hits_array',
         type: 'post',
         dataType: 'json',
+        context: this,
         data: {
           user_game_id: 1,
           coords: params
@@ -20,8 +31,11 @@ export default Ember.Route.extend({
       }
 
       Ember.$.ajax(data).success(function(response) {
+
+        let user_game = this.store.peekRecord('user_game', 2)
         debugger;
-      })
+        user_game.set('hits', response.data.grid);
+      }, this)
 
       // let model = this.modelFor(this.routeName);
       // let hits = this.controllerFor(this.routeName).get('hits');
@@ -38,26 +52,5 @@ export default Ember.Route.extend({
       // console.log(hit);
       // console.log(hits[params[0]][params[1]])
     }
-    // sendRequest(coords) {
-    //   let data = {
-    //     url: 'games/hits_array',
-    //     type: 'get',
-    //     dataType: 'json',
-    //     data: {
-    //       user_game: 1,
-    //       coords: coords
-    //     }
-    //   }
-
-    //   Ember.$.ajax(data).success(function(response) {
-    //     debugger;
-    //   })
-    //   return this.get('ajax').request('/games/hits_array'), {
-    //     method: 'GET',
-    //     data: {
-          
-    //     }
-    //   };
-    // }
   }
 });
