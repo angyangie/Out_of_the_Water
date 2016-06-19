@@ -19,6 +19,16 @@ export default Ember.Route.extend({
   actions: {
     makeHit(params) {
 
+      // AI call goes here
+
+      let ai_coords = aiFunction(this.model)
+
+      function aiFunction(model) {
+        //Do AI logic based on which grid squares have been attacked, and also whether its most recent shot was a hit or a miss
+        //Do logic, random grid square or adjacent square to most recent shot, if most recent shot was a hit
+        //Return coordinates to attack next
+      }
+
       let data = {
         url: 'http://localhost:3000/api/v1/games/hits_array',
         type: 'post',
@@ -26,15 +36,18 @@ export default Ember.Route.extend({
         context: this,
         data: {
           user_game_id: 1,
-          coords: params
+          player_coords: params,
+          ai_coords: "12"
         }
       }
 
       Ember.$.ajax(data).success(function(response) {
-
-        let user_game = this.store.peekRecord('user_game', 2)
         debugger;
-        user_game.set('hits', response.data.grid);
+        let ai_user_game = this.store.peekRecord('user_game', 2)
+        let player_user_game = this.store.peekRecord('user_game', 1)
+        ai_user_game.set('hits', response.data.ai_grid);
+        player_user_game.set('hits', response.data.player_grid);
+        debugger;
       }, this)
 
       // let model = this.modelFor(this.routeName);

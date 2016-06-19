@@ -8,12 +8,12 @@
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
-        <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
+        <td style="width:50px;height:50px;">
 
         {{!--   {{{is-ship coord model=model player="1"}}}
           {{{is-hit coord model=model player=1}}} --}}
 
-          {{{ships-and-shots coord model=model player="1"}}}
+          {{{ships-and-shots coord model=model player="1" showShip=true}}}
 
         </td>
         {{/each}}
@@ -33,7 +33,7 @@
           {{!-- {{{is-ship coord model=model player="2"}}}
           {{{is-hit coord model=model player=2}}} --}}
           
-          {{{ships-and-shots coord model=model player="2"}}}
+          {{{ships-and-shots coord model=model player="2" showShip=false}}}
 
         </td>
         {{/each}}
