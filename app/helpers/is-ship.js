@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export function isShip(coords, hash) {
-  const player = hash.player
   const ships = hash.model.get('ships').filter(function(item){
-    if(item.get('user.id') === player) return true 
+    if(item.get('user.id') === hash.player) return true 
   })
   let ship;
 
