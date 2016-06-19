@@ -3,18 +3,24 @@ import Ember from 'ember';
 export function shipsAndShots(coords, hash) {
   const player = hash.player
   const hits = hash.model.get('user_games').mapBy('hits')[parseInt(player) - 1];
-  // coordsForHits = [parseInt(coords[0][0]), parseInt(coords[0][1])];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
+  debugger;
 
   switch(hitValue) {
     case "1":
     return "<img src='assets/images/miss.png' class='shots-fired'>";
     break;
     case "2":
+    if (!hash.showShip) return "<img src='assets/images/hit.png' class='shots-fired'>";
+    wasHit = "hit-";
+    break;
+    case "3":
     wasHit = "hit-";
     break;
   }
+
+  if (!hash.showShip) return null;
 
   const ships = hash.model.get('ships').filter(function(item){
     if(item.get('user.id') === hash.player) return true 
@@ -44,3 +50,12 @@ export function shipsAndShots(coords, hash) {
 }
 
 export default Ember.Helper.helper(shipsAndShots);
+
+
+// if grid value = 3, show ship being hit
+// else if hash.showShip = true
+//   if grid value = 2, show ship being hit
+//   else if grid value = 0, show nothing
+// else if hash.showShip = false
+//   if grid value = 2, show explosion on water
+//   else show nothing
