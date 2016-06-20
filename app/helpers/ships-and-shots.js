@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export function shipsAndShots(coords, hash) {
   const player = hash.player
-  const hits = hash.model.get('user_games').mapBy('hits')[parseInt(player) - 1];
+  const hits = hash.model.get('userGames').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
 
@@ -15,7 +15,6 @@ export function shipsAndShots(coords, hash) {
     wasHit = "hit-";
     break;
     case "3":
-    debugger;
     wasHit = "hit-";
     break;
   }
@@ -35,12 +34,12 @@ export function shipsAndShots(coords, hash) {
 
       if (ship[0][1] === ship[1][1]) vertical = " ship-rotate";
 
-      const ship_type = ships.mapBy('ship_type')[i]
-
+      const shipType = ships.mapBy('shipType')[i]
+      // debugger;
       if ((ship[0][0] > ship[1][0]) && (vertical !== "")) {
-        shipPiece = `${ship_type.toLowerCase()}-${ship.length - ship.indexOf(coords[0])}`;
+        shipPiece = `${shipType.toLowerCase()}-${ship.length - ship.indexOf(coords[0])}`;
       } else {
-        shipPiece = `${ship_type.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
+        shipPiece = `${shipType.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
       }
 
       return `<img src="assets/images/${wasHit}ship-pieces/${shipPiece}.png" class="ship-piece${vertical}">`
