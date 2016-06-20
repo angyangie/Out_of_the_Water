@@ -38,7 +38,7 @@ export default Ember.Route.extend({
         data: {
           user_game_id: 1,
           player_coords: params,
-          ai_coords: "12"
+          ai_coords: "11"
         }
       }
 
@@ -48,21 +48,6 @@ export default Ember.Route.extend({
         ai_user_game.set('hits', response.data.ai_grid);
         player_user_game.set('hits', response.data.player_grid);
       }, this)
-
-      // let model = this.modelFor(this.routeName);
-      // let hits = this.controllerFor(this.routeName).get('hits');
-      // let hit = false;
-      // for (let i = 0;i < model.length;i++) {
-      //   for (let j = 0;j < model[i].length;j++) {
-      //     if (model[i][j] === params) {
-      //       hit = true;
-      //       hits[params[0]][params[1]] = true;
-      //     }
-      //   }
-      // }
-      // console.log(params);
-      // console.log(hit);
-      // console.log(hits[params[0]][params[1]])
     }
   }
 });

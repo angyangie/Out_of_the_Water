@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export function shipsAndShots(coords, hash) {
   const player = hash.player
-  const hits = hash.model.get('user_games').mapBy('hits')[parseInt(player) - 1];
+  const hits = hash.model.get('userGames').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
 
@@ -19,7 +19,7 @@ export function shipsAndShots(coords, hash) {
     break;
   }
 
-  if (!hash.showShip) return null;
+  if (!hash.showShip && hitValue !== "3") return null;
 
   const ships = hash.model.get('ships').filter(function(item){
     if(item.get('user.id') === hash.player) return true 
@@ -34,12 +34,12 @@ export function shipsAndShots(coords, hash) {
 
       if (ship[0][1] === ship[1][1]) vertical = " ship-rotate";
 
-      const ship_type = ships.mapBy('ship_type')[i]
-
+      const shipType = ships.mapBy('shipType')[i]
+      // debugger;
       if ((ship[0][0] > ship[1][0]) && (vertical !== "")) {
-        shipPiece = `${ship_type.toLowerCase()}-${ship.length - ship.indexOf(coords[0])}`;
+        shipPiece = `${shipType.toLowerCase()}-${ship.length - ship.indexOf(coords[0])}`;
       } else {
-        shipPiece = `${ship_type.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
+        shipPiece = `${shipType.toLowerCase()}-${ship.indexOf(coords[0])+1}`;
       }
 
       return `<img src="assets/images/${wasHit}ship-pieces/${shipPiece}.png" class="ship-piece${vertical}">`
@@ -49,12 +49,3 @@ export function shipsAndShots(coords, hash) {
 }
 
 export default Ember.Helper.helper(shipsAndShots);
-
-
-// if grid value = 3, show ship being hit
-// else if hash.showShip = true
-//   if grid value = 2, show ship being hit
-//   else if grid value = 0, show nothing
-// else if hash.showShip = false
-//   if grid value = 2, show explosion on water
-//   else show nothing

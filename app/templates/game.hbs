@@ -1,21 +1,21 @@
 <div class='row'>
 
+  <div class='col-md-8 text-center site-logo'>
+    <h1>Out of the Water!</h1>
+  </div>
+
   {{outlet}}
 
   <div class="col-md-4 table-padded">
-
     <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
+        
         <td style="width:50px;height:50px;">
-
-        {{!--   {{{is-ship coord model=model player="1"}}}
-          {{{is-hit coord model=model player=1}}} --}}
-
           {{{ships-and-shots coord model=model player="1" showShip=true}}}
-
         </td>
+
         {{/each}}
       </tr>
       {{/each}}
@@ -23,19 +23,15 @@
   </div>
   
   <div class="col-md-4 table-padded">
-
     <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
+
         <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
-
-          {{!-- {{{is-ship coord model=model player="2"}}}
-          {{{is-hit coord model=model player=2}}} --}}
-          
           {{{ships-and-shots coord model=model player="2" showShip=false}}}
-
         </td>
+
         {{/each}}
       </tr>
       {{/each}}
