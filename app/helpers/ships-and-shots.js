@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export function shipsAndShots(coords, hash) {
+  debugger
   const player = hash.player
   const hits = hash.model.get('userGames').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
