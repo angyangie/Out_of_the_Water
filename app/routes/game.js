@@ -37,17 +37,17 @@ export default Ember.Route.extend({
         data: {
           user_game_id: 1,
           player_coords: params,
-          ai_coords: "12"
+          ai_coords: "00"
         }
       }
 
       Ember.$.ajax(data).success(function(response) {
-        debugger;
+        // debugger;
         let ai_user_game = this.store.peekRecord('user_game', 2)
         let player_user_game = this.store.peekRecord('user_game', 1)
         ai_user_game.set('hits', response.data.ai_grid);
         player_user_game.set('hits', response.data.player_grid);
-        debugger;
+        // debugger;
       }, this)
 
       // let model = this.modelFor(this.routeName);

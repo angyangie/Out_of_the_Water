@@ -5,7 +5,6 @@ export function shipsAndShots(coords, hash) {
   const hits = hash.model.get('user_games').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
-  debugger;
 
   switch(hitValue) {
     case "1":
@@ -16,11 +15,12 @@ export function shipsAndShots(coords, hash) {
     wasHit = "hit-";
     break;
     case "3":
+    debugger;
     wasHit = "hit-";
     break;
   }
 
-  if (!hash.showShip) return null;
+  if (!hash.showShip && hitValue !== "3") return null;
 
   const ships = hash.model.get('ships').filter(function(item){
     if(item.get('user.id') === hash.player) return true 
@@ -50,12 +50,3 @@ export function shipsAndShots(coords, hash) {
 }
 
 export default Ember.Helper.helper(shipsAndShots);
-
-
-// if grid value = 3, show ship being hit
-// else if hash.showShip = true
-//   if grid value = 2, show ship being hit
-//   else if grid value = 0, show nothing
-// else if hash.showShip = false
-//   if grid value = 2, show explosion on water
-//   else show nothing
