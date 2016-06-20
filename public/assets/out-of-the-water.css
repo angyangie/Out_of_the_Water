@@ -1,3 +1,7 @@
+html body {
+  background-color: lightgray;
+}
+
 div.table-padded {
   margin: 20px;
 }
@@ -17,4 +21,11 @@ img.shots-fired {
 
 div.site-logo {
   margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: dimgray;
+}
+
+div.center-table {
+  text-align: center;
+  margin: 0 auto;
 }

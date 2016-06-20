@@ -1,13 +1,13 @@
 <div class='row'>
 
-  <div class='col-md-10 text-center site-logo'>
+  <div class='col-md-12 text-center site-logo'>
     <img src="assets/images/out_of_the_water_logo.png">
   </div>
 
   {{outlet}}
-
-  <div class="col-md-5 table-padded">
-    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
+  <div class="col-md-1"></div>
+  <div class="col-md-5 center-table">
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-padded">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
@@ -21,9 +21,10 @@
       {{/each}}
     </table>
   </div>
+<div class="col-md-1"></div>
   
-  <div class="col-md-5 table-padded">
-    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg">
+  <div class="col-md-5 center-table text-right">
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-padded">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
@@ -37,5 +38,4 @@
       {{/each}}
     </table>
   </div>
-
 </div>
