@@ -5,7 +5,6 @@ export function shipsAndShots(coords, hash) {
   const hits = hash.model.get('user_games').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
-  debugger;
 
   switch(hitValue) {
     case "1":

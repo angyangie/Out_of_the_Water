@@ -13,7 +13,6 @@ export default Ember.Route.extend({
     if (hits[coords[0]][coords[1]]){
       return "<img src='assets/images/miss.jpg'>"
     }
-
   },
 
   actions: {
@@ -24,6 +23,8 @@ export default Ember.Route.extend({
       let ai_coords = aiFunction(this.model)
 
       function aiFunction(model) {
+
+
         //Do AI logic based on which grid squares have been attacked, and also whether its most recent shot was a hit or a miss
         //Do logic, random grid square or adjacent square to most recent shot, if most recent shot was a hit
         //Return coordinates to attack next
@@ -42,12 +43,10 @@ export default Ember.Route.extend({
       }
 
       Ember.$.ajax(data).success(function(response) {
-        debugger;
         let ai_user_game = this.store.peekRecord('user_game', 2)
         let player_user_game = this.store.peekRecord('user_game', 1)
         ai_user_game.set('hits', response.data.ai_grid);
         player_user_game.set('hits', response.data.player_grid);
-        debugger;
       }, this)
 
       // let model = this.modelFor(this.routeName);
