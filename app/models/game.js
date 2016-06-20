@@ -4,8 +4,8 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   completed: attr('boolean'),
-  game_type: attr('string'),
-  user_games: hasMany('user-game', { async: true }),
+  gameType: attr('string'),
+  userGames: hasMany('user-game', { async: true }),
   users: hasMany('user', { async: true }),
   ships: hasMany('ship')
   // winner: belongsTo('user')

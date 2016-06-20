@@ -4,8 +4,8 @@ import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   coordinates: attr('string'),
-  ship_type: attr('string'),
-  user_game: belongsTo('user-game'),
+  shipType: attr('string'),
+  userGame: belongsTo('user-game'),
   user: belongsTo('user'),
   game: belongsTo('game')
 });
