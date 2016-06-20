@@ -4,21 +4,17 @@ export default Ember.Route.extend({
   model() {
     return this.store.findRecord('game', 1);
   },
-  hitsArrayChanged: function() {
-    console.log('rerender');
-    this.rerender();
-  }.observes('this.model'),
-  isHit(coords) {
-    const user_game = this.store.peekRecord('user_game', 1)
+  // isHit(coords) {
+  //   const user_game = this.store.peekRecord('user_game', 1)
 
-    const hits_array = user_game.get('hits');
-    coords = [parseInt(coords[0][0]), parseInt(coords[0][1])];
+  //   const hits_array = user_game.get('hits');
+  //   coords = [parseInt(coords[0][0]), parseInt(coords[0][1])];
     
-    if (hits[coords[0]][coords[1]]){
-      return "<img src='assets/images/miss.jpg'>"
-    }
+  //   if (hits[coords[0]][coords[1]]){
+  //     return "<img src='assets/images/miss.jpg'>"
+  //   }
 
-  },
+  // },
 
   actions: {
     makeHit(params) {
