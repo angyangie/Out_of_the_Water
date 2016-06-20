@@ -4,10 +4,6 @@ export default Ember.Route.extend({
   model() {
     return this.store.findRecord('game', 1);
   },
-  hitsArrayChanged: function() {
-    console.log('rerender');
-    this.rerender();
-  }.observes('this.model'),
   isHit(coords) {
     const user_game = this.store.peekRecord('user_game', 1)
 
