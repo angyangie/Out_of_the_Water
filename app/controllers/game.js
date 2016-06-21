@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  // completed: Ember.computed(function(){
+  //   return this.get('model').get('completed')
+  // }),
   coordsArray: Ember.computed('model.userGames.@each.hits',function() {
     let rows = [0,1,2,3,4,5,6,7,8,9];
     let cols = [0,1,2,3,4,5,6,7,8,9];
@@ -47,17 +50,11 @@ export default Ember.Controller.extend({
       return (hits[nextValue1] == 0 ? nextValue1.toString() : nextValue2.toString())
     }
   }),
-  isGameWin: Ember.computed('model.games.completed', function() {
-    console.log("Calling a win")
-    return (this.get('model.games').get('completed') === 2);
+  isGameWin: Ember.computed('model.completed', function() {
+    return this.get('model.completed') === 2;
   }),
-  isGameLoss: Ember.computed('gameStatus', function() {
-    console.log("Calling a loss")
-    return (this.get('model.games').get('completed') === 1);
+  isGameLoss: Ember.computed('model.completed', function() {
+    return this.get('model.completed') === 1;
   })
-  // isGameStillOn: Ember.computed('gameStatus', function() {
-  //   console.log("Game still on")
-  //   // return (this.get('gameStatus') === 1);
-  // }),
 });
 

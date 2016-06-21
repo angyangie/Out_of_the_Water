@@ -1,8 +1,12 @@
-{{isGameStillOn}}
 {{#if isGameWin}}
-<img src="assets/images/win.png" style="position:absolute;z-index:10;">
-<img src="assets/images/play-again.png" style="left:500px;top:550px;position:absolute;z-index:20;" {{action "playAgain" on="click" }}>
+<img src="assets/images/win.png" style="left:400px;position:absolute;z-index:10;">
+<img src="assets/images/play-again.png" style="left:800px;top:550px;position:absolute;z-index:20;" {{action "playAgain" on="click" }}>
 {{/if}}
+{{#if isGameLoss}}
+<img src="assets/images/lose.png" style="left:400px;position:absolute;z-index:10;">
+<img src="assets/images/play-again.png" style="left:800px;top:550px;position:absolute;z-index:20;" {{action "playAgain" on="click" }}>
+{{/if}}
+
 
 <div class='row after'>
 
