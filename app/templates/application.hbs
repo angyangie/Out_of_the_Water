@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse navbar-translucent">
+   <div class="navbar-header col-xs-1">
+     {{link-to "HOME" 'game' class="navbar-brand"}}
+   </div>
+   <div class="col-xs-3">
+   </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+     <ul class="nav navbar-nav col-xs-6">
+       {{#link-to 'about' tagName='li' id="about"}}
+         {{link-to 'About' 'about'}}
+       {{/link-to}}
+
+       {{#link-to 'tutorial' tagName='li' id="tutorial"}}
+         {{link-to 'Tutorial' 'tutorial'}}
+       {{/link-to}}
+
+     </ul>
+   </div>
+</nav>
+
+{{outlet}}

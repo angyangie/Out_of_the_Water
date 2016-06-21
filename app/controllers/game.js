@@ -16,7 +16,6 @@ export default Ember.Controller.extend({
     return cArray;
   }),
   aiFunction: Ember.computed('model.userGames.@each.hits', function() {
-    debugger;
     const hits = this.store.peekAll('user_game').mapBy('hits')[0].split(",");
 
     var allHitsCoordinates = []

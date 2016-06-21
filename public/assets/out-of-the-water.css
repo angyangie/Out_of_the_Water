@@ -20,10 +20,11 @@ img.shots-fired {
 }
 
 div.site-logo {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-bottom: 20px;
   background-color: dimgray;
 }
+
 
 div.center-table {
   text-align: center;
