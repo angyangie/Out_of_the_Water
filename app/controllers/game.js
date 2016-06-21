@@ -1,9 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  // completed: Ember.computed(function(){
-  //   return this.get('model').get('completed')
-  // }),
   coordsArray: Ember.computed('model.userGames.@each.hits',function() {
     let rows = [0,1,2,3,4,5,6,7,8,9];
     let cols = [0,1,2,3,4,5,6,7,8,9];
