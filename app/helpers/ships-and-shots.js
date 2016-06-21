@@ -5,7 +5,6 @@ export function shipsAndShots(coords, hash) {
   const hits = hash.model.get('userGames').mapBy('hits')[parseInt(player) - 1];
   const hitValue = hits.split(",")[parseInt(coords[0])];
   let wasHit = "";
-
   switch(hitValue) {
     case "1":
     return "<img src='assets/images/miss.png' class='shots-fired'>";
@@ -27,7 +26,7 @@ export function shipsAndShots(coords, hash) {
   let ship;
 
   for (let i = 0;i < ships.length;i++) {
-    ship = ships[i].get('coordinates').split(",")
+    ship = ships[i].get('coordinates').split(",").sort();
     if (ship.includes(coords[0])) {
       let vertical = "";
       let shipPiece = "";

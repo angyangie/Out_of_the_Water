@@ -3,7 +3,7 @@ import attr from 'ember-data/attr';
 import { belongsTo, hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
-  completed: attr('boolean'),
+  completed: attr('number'),
   gameType: attr('string'),
   userGames: hasMany('user-game', { async: true }),
   users: hasMany('user', { async: true }),

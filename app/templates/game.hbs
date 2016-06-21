@@ -1,4 +1,10 @@
-<div class='row'>
+{{isGameStillOn}}
+{{#if isGameWin}}
+<img src="assets/images/win.png" style="position:absolute;z-index:10;">
+<img src="assets/images/play-again.png" style="left:500px;top:550px;position:absolute;z-index:20;" {{action "playAgain" on="click" }}>
+{{/if}}
+
+<div class='row after'>
 
   <div class='col-md-12 text-center site-logo'>
     <img src="assets/images/out_of_the_water_logo.png">
@@ -21,12 +27,11 @@
       {{/each}}
     </table>
   </div>
-<div class="col-md-1"></div>
   
-  <div class="col-md-5 center-table text-right">
+  <div class="col-md-5 center-table pull-left">
     <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-padded">
       {{#each coordsArray as |innerArray|}}
-      <tr>
+      <tr>`
         {{#each innerArray as |coord|}}
 
         <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
