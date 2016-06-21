@@ -66,7 +66,7 @@ export default Ember.Controller.extend({
           horizontalArray.push(allHitsCoordinatesSort[0])
         }
 
-        debugger;
+      
 
         let horizontalCoord = horizontalArray[0].toString()[0]
         let verticalCoord = verticalArray[0].toString()[1]
@@ -80,6 +80,8 @@ export default Ember.Controller.extend({
 
         }
 
+      
+
 ///repeated code from above: 
 
     //sets new allhits array. 
@@ -90,6 +92,8 @@ export default Ember.Controller.extend({
       let newHitsArraySort = verticalArray.sort()
     }
 
+   
+
     if (newHitsArraySort.length == 1) {
       ///surrounding array....can it be the same as above? 
       surroundingArray = [[newHitsArraySort[0] + 10],[newHitsArraySort[0] - 10], [newHitsArraySort[0] + 1], [newHitsArraySort[0] - 1]]
@@ -98,6 +102,8 @@ export default Ember.Controller.extend({
           
           ///attack coords...can they be the same as above?? 
           attack_coords = surroundingArray[i][0];
+
+        
           return (attack_coords < 10 ? `0${attack_coords}` : attack_coords.toString());
         }
       }
@@ -117,25 +123,17 @@ export default Ember.Controller.extend({
     }
 
 ////
-
       }
-
-
       return (hits[nextValue1] == 0 ? nextValue1.toString() : nextValue2.toString())
     }
+
+  }),
+  isGameWin: Ember.computed('model.completed', function() {
+    return this.get('model.completed') === 2;
+  }),
+  isGameLoss: Ember.computed('model.completed', function() {
+    return this.get('model.completed') === 1;
   })
-  // isGameWin: Ember.computed('model.games.completed', function() {
-  //   console.log("Calling a win")
-  //   return (this.get('model.games').get('completed') === 2);
-  // }),
-  // isGameLoss: Ember.computed('gameStatus', function() {
-  //   console.log("Calling a loss")
-  //   return (this.get('model.games').get('completed') === 1);
-  // })
-  // isGameStillOn: Ember.computed('gameStatus', function() {
-  //   console.log("Game still on")
-  //   // return (this.get('gameStatus') === 1);
-  // }),
 });
 
 
