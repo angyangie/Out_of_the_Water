@@ -27,21 +27,25 @@ export default Ember.Route.extend({
         player_user_game.set('hits', response.data.player_grid);
         game.set('completed', response.data.game_status);
       }, this)
-    }
-  },
-  newGame() {
-    let data = {
-      url: 'http://localhost:3000/api/v1/games/new_game',
-      type: 'post',
-      dataType: 'json',
-      context: this,
-      data: {
-        user_game_id: 1
-      }
-    };
-
-    Ember.$.ajax(data).success(function(response) {
+    },
+    newGame() {
+      // this.store.findRecord('game', 1);
       window.location.reload(true)
-    }, this)    
+    //   let data = {
+    //     url: 'http://localhost:3000/api/v1/games/new_game',
+    //     type: 'post',
+    //     dataType: 'json',
+    //     context: this,
+    //     data: {
+    //       game_id: 1
+    //     }
+    //   };
+
+    //   Ember.$.ajax(data).success(function(response) {
+    //     debugger
+    //     this.store.peekRecord('game',1).set(response)
+    //     window.location.reload(true)
+    //   }, this)    
+    }
   }
 });
