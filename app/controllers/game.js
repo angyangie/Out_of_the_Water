@@ -16,10 +16,8 @@ export default Ember.Controller.extend({
     return cArray;
   }),
   aiFunction: Ember.computed('model.userGames.@each.hits', function() {
-    debugger;
     const hits = this.store.peekRecord('user_game', 1).get('hits').split(",");
     // const hits = this.store.peekAll('user_game').mapBy('hits')[0].split(",");
-    debugger
     var allHitsCoordinates = []
     hits.forEach(function(hit, index){
       let coordToPad = index.toString();
@@ -36,7 +34,6 @@ export default Ember.Controller.extend({
         allMissesCoordinates.push(coordToPad);
       }
     })
-    debugger;
     if (allHitsCoordinates.length == 0){
       return (allMissesCoordinates[Math.floor(Math.random() * allMissesCoordinates.length)])
     } else if (allHitsCoordinates.length == 1) {
