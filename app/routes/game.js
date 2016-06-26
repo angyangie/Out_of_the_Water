@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   },
   actions: {
     makeHit(params) {
+      debugger
       let ai_coords = this.get('controller').get('aiFunction');
       let data = {
         url: 'http://localhost:3000/api/v1/games/hits_array',
@@ -20,6 +21,7 @@ export default Ember.Route.extend({
       }
 
       Ember.$.ajax(data).success(function(response) {
+        debugger;
         let ai_user_game = this.store.peekRecord('user_game', 2);
         let player_user_game = this.store.peekRecord('user_game', 1);
         let game = this.store.peekRecord('game', 1);
@@ -29,23 +31,7 @@ export default Ember.Route.extend({
       }, this)
     },
     newGame() {
-      // this.store.findRecord('game', 1);
       window.location.reload(true)
-    //   let data = {
-    //     url: 'http://localhost:3000/api/v1/games/new_game',
-    //     type: 'post',
-    //     dataType: 'json',
-    //     context: this,
-    //     data: {
-    //       game_id: 1
-    //     }
-    //   };
-
-    //   Ember.$.ajax(data).success(function(response) {
-    //     debugger
-    //     this.store.peekRecord('game',1).set(response)
-    //     window.location.reload(true)
-    //   }, this)    
     }
   }
 });
