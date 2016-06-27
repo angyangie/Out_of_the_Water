@@ -2,8 +2,11 @@ import Ember from 'ember';
 
 export function shipsAndShots(coords, hash) {
   const player = hash.player
-  const hits = hash.model.get('userGames').mapBy('hits')[parseInt(player) - 1];
-  const hitValue = hits.split(",")[parseInt(coords[0])];
+  const hits = hash.model.get('userGames').filter(function(item) {
+    if (item.id === player) return true;
+  }).mapBy('hits');
+
+  const hitValue = hits[0].split(",")[parseInt(coords[0])];
   let wasHit = "";
   switch(hitValue) {
     case "1":
@@ -21,8 +24,8 @@ export function shipsAndShots(coords, hash) {
   if (!hash.showShip && hitValue !== "3") return null;
 
   const ships = hash.model.get('ships').filter(function(item){
-    if(item.get('user.id') === hash.player) return true 
-  })
+    if (item.get('user.id') === player) return true;
+  });
   let ship;
 
   for (let i = 0;i < ships.length;i++) {
