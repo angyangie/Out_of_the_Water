@@ -6,7 +6,7 @@ Sink ships! Beat the indefatigable AI! Achieve world domination! Stop Sky-Net! A
 
 ## Prerequisites
 
-You will need the following things properly installed on your computer:
+You will need the following things installed on your computer:
 
 * Ember.JS, bower, babel/babel-cli via `npm`
 * Rails 5 installed via `gem`
