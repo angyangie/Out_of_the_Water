@@ -73,4 +73,3 @@ export default Ember.Controller.extend({
     return this.get('model.completed') === 1;
   })
 });
-
