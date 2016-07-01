@@ -21,8 +21,8 @@ module.exports = function(environment) {
 
   if (environment === 'development') {
     ENV.Host = "http://localhost:3000";
-    // ENV.Host = "https://fathomless-plains-75135.herokuapp.com";
     ENV.Namespace = "api/v1";
+    ENV.FullPath = "http://localhost:3000/api/vi"
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -34,6 +34,7 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.Host = "http://localhost:3000";
     ENV.Namespace = "api/v1";
+    ENV.FullPath = "http://localhost:3000/api/vi"
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
@@ -47,6 +48,7 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.Host = "https://fathomless-plains-75135.herokuapp.com";
     ENV.Namespace = "api/v1";
+    ENV.FullPath = "https://fathomless-plains-75135.herokuapp.com/api/v1"
   }
 
   return ENV;
