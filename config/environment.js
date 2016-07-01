@@ -46,9 +46,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.Host = "https://fathomless-plains-75135.herokuapp.com";
+    ENV.Host = "https://out-of-the-water-api.herokuapp.com";
     ENV.Namespace = "api/v1";
-    ENV.FullPath = "https://fathomless-plains-75135.herokuapp.com/api/v1"
+    ENV.FullPath = "https://out-of-the-water-api.herokuapp.com/api/v1"
   }
 
   return ENV;
