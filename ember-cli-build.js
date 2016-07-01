@@ -8,8 +8,8 @@ module.exports = function(defaults) {
       // enabled: false
       generateAssetMap: true
     }
-  })
-};
+  });
+}
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
