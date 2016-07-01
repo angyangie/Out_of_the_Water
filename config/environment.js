@@ -22,7 +22,7 @@ module.exports = function(environment) {
   if (environment === 'development') {
     ENV.Host = "http://localhost:3000";
     ENV.Namespace = "api/v1";
-    ENV.FullPath = "http://localhost:3000/api/vi"
+    ENV.FullPath = "http://localhost:3000/api/v1"
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -34,7 +34,7 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.Host = "http://localhost:3000";
     ENV.Namespace = "api/v1";
-    ENV.FullPath = "http://localhost:3000/api/vi"
+    ENV.FullPath = "http://localhost:3000/api/v1"
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
