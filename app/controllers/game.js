@@ -17,7 +17,6 @@ export default Ember.Controller.extend({
   }),
   aiFunction: Ember.computed('model.userGames.@each.hits', function() {
     const hits = this.store.peekRecord('user_game', 1).get('hits').split(",");
-    // const hits = this.store.peekAll('user_game').mapBy('hits')[0].split(",");
     var allHitsCoordinates = []
     hits.forEach(function(hit, index){
       let coordToPad = index.toString();
@@ -25,8 +24,8 @@ export default Ember.Controller.extend({
       if (hit == "2") allHitsCoordinates.push(coordToPad)
     })
 
-    var allHitsCoordinatesSort = allHitsCoordinates.sort();
-    var allMissesCoordinates = []
+    let allHitsCoordinatesSort = allHitsCoordinates.sort();
+    let allMissesCoordinates = []
     hits.forEach(function(hit, index){
       if (hit == "0") {
         let coordToPad = index.toString();
@@ -45,12 +44,26 @@ export default Ember.Controller.extend({
         }
       }
     } else if (allHitsCoordinates.length > 1){
-      var vertical = allHitsCoordinatesSort[0].toString()[1] === allHitsCoordinatesSort[1].toString()[1]
-      var lastCoord = allHitsCoordinatesSort[allHitsCoordinatesSort.length - 1]
-      var firstCoord = allHitsCoordinatesSort[0]
+      let vertical = allHitsCoordinatesSort[0].toString()[1] === allHitsCoordinatesSort[1].toString()[1]
+      let lastCoord = allHitsCoordinatesSort[allHitsCoordinatesSort.length - 1]
+      let firstCoord = allHitsCoordinatesSort[0]
       let nextValue1 = (vertical ? parseInt(lastCoord) + 10 : parseInt(lastCoord) + 1)
       let nextValue2 = (vertical ? parseInt(firstCoord) - 10 : parseInt(firstCoord) - 1)
-      return (hits[nextValue1] == 0 ? nextValue1.toString() : nextValue2.toString())
+      
+      if (hits[nextValue1] === "0" || hits[nextValue2] === "0") {
+        return (hits[nextValue1] === "0" ? nextValue1.toString() : nextValue2.toString())
+      }
+
+      for (let i = 0;i <= 1; i++) {
+        for (let j = 0; j < allHitsCoordinates.length; j++) {
+          nextValue1 = (vertical ? parseInt(allHitsCoordinates[j]) + 10 : parseInt(allHitsCoordinates[j]) + 1)
+          nextValue2 = (vertical ? parseInt(allHitsCoordinates[j]) - 10 : parseInt(allHitsCoordinates[j]) - 1)
+          if (hits[nextValue1] === "0" || hits[nextValue2] === "0") {
+            return (hits[nextValue1] === "0" ? nextValue1.toString() : nextValue2.toString())
+          }
+        }
+        vertical = !vertical;
+      }
     }
   }),
   isGameWin: Ember.computed('model.completed', function() {

@@ -39,7 +39,7 @@
         {{#each innerArray as |coord|}}
 
         <td style="width:50px;height:50px;"{{action "makeHit" coord on="click" }}>
-          {{{ships-and-shots coord model=model player="2" showShip=true}}}
+          {{{ships-and-shots coord model=model player="2" showShip=false}}}
         </td>
 
         {{/each}}
