@@ -1,6 +1,7 @@
 import JSONAPIAdapter from 'ember-data/adapters/json-api';
+import ENV from "../config/environment";
 
 export default JSONAPIAdapter.extend({
-  host: "http://localhost:3000",
-  namespace: "api/v1"
+  host: ENV.Host,
+  namespace: ENV.Namespace
 });
