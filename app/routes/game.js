@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from "../config/environment";
 
 export default Ember.Route.extend({
   model() {
@@ -8,7 +9,7 @@ export default Ember.Route.extend({
     makeHit(params) {
       let ai_coords = this.get('controller').get('aiFunction');
       let data = {
-        url: 'http://localhost:3000/api/v1/games/hits_array',
+        url: `${ENV.FullPath}/games/hits_array`,
         type: 'post',
         dataType: 'json',
         context: this,

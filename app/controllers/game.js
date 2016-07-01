@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
   }),
   aiFunction: Ember.computed('model.userGames.@each.hits', function() {
     const hits = this.store.peekRecord('user_game', 1).get('hits').split(",");
-    var allHitsCoordinates = []
+    let allHitsCoordinates = []
     hits.forEach(function(hit, index){
       let coordToPad = index.toString();
       if (coordToPad.length === 1) coordToPad = "0" + coordToPad;
@@ -73,4 +73,3 @@ export default Ember.Controller.extend({
     return this.get('model.completed') === 1;
   })
 });
-
