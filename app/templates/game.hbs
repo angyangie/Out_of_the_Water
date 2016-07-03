@@ -15,9 +15,8 @@
   </div>
 
   {{outlet}}
-  <div class="col-md-1"></div>
-  <div class="col-md-5 center-table">
-    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-padded">
+  <div class="col-md-6">
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-left">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}
@@ -32,8 +31,8 @@
     </table>
   </div>
   
-  <div class="col-md-5 center-table pull-left">
-    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-padded">
+  <div class="col-md-6">
+    <table border="3px" border-color="white" background="assets/images/ocean-background.jpg" class="table-right">
       {{#each coordsArray as |innerArray|}}
       <tr>
         {{#each innerArray as |coord|}}

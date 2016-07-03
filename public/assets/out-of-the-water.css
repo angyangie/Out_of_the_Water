@@ -2,9 +2,10 @@ html body {
   background-color: lightgray;
 }
 
-div.table-padded {
-  margin: 20px;
+table.table-padded {
+  /*margin-left: 90px;*/
 }
+
 img.ship-piece {
   width: 50px;
   height: 50px;
@@ -25,12 +26,15 @@ div.site-logo {
   background-color: dimgray;
 }
 
-div.center-table {
-  text-align: center;
-  margin: 0 auto;
+table.table-left {
+  margin-left: 15%;
+}
+
+table.table-right {
+  margin-left: 10%;
 }
 
 .img-overlay {
-    position: relative;
-    max-width: 500px; //whatever your max-width should be 
+  position: relative;
+  max-width: 500px; //whatever your max-width should be 
 }
